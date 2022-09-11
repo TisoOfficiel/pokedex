@@ -9,12 +9,29 @@
 </head>
 <body>    
     <div class="container">
+        <button onclick="previous()" >Prev</button>
+        <button onclick="next()">Next</button>
         <div class="pokedex">
             <img src="" id="pokemon">
-            <h1 id="name"></h1>
-            <h3 id="type"></h3>
-            <h4 id="caract"></h4>            
-            <input type="search" placeholder="Enter a name or an id" name="data" id="data">
+            <input type="search" placeholder="Enter a name or an ID" name="data" id="data">
+            <div class="carateristique">
+                <h1 id="name" data-id=""></h1>
+                <h2 id="height"></h2>
+                <h2 id="weight"></h2>            
+            </div>
+            <div class="stat">
+                <div class="left">
+                    <h2 id="hp"></h2>
+                    <h2 id="attack"></h2>
+                    <h2 id="defense"></h2>
+                </div>
+                <div class="right">
+                    <h2 id="special-attack"></h2>
+                    <h2 id="special-defence"></h2>
+                    <h2 id="speed"></h2>
+                </div>
+            </div>
+            
         </div>
     </div>    
     <script src="app.js"></script>

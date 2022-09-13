@@ -9,9 +9,9 @@
 </head>
 <body>    
     <div class="container">
-        <button onclick="previous()" >Prev</button>
-        <button onclick="next()">Next</button>
+        
         <div class="pokedex">
+            <!-- Left side of pokedex -->
             <img src="" id="pokemon">
             <input type="search" placeholder="Enter a name or an ID" name="data" id="data">
             <div class="carateristique">
@@ -19,6 +19,13 @@
                 <h2 id="height"></h2>
                 <h2 id="weight"></h2>            
             </div>
+            <div class="test">
+                <img src="./assets/type_pokemon/bug.png" alt="">
+                <img src="assets\type_pokemon\dark.png" alt="">
+                <img src="assets\type_pokemon\dragon.png" alt="">
+            </div>
+            
+            <!-- Right side of pokedex -->
             <div class="stat">
                 <div class="left">
                     <h2 id="hp"></h2>
@@ -30,6 +37,11 @@
                     <h2 id="special-defence"></h2>
                     <h2 id="speed"></h2>
                 </div>
+            </div>
+
+            <div class="button">
+                <button onclick="previous()"><</button>
+                <button onclick="next()">></button>
             </div>
             
         </div>

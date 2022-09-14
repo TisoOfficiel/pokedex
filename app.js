@@ -13,9 +13,9 @@ var input = document.getElementById("data");
       }
       var url = await fetch('https://pokeapi.co/api/v2/pokemon/'+data)
       .then(response => response.json())
-          .then(function (pokeData) {
-            console.log(pokeData.types[0]['type']['name']);
-            console.log(pokeData.types[1]['type']['name']);
+        .then(function (pokeData) {
+            
+
             document.getElementById('data').value = ""
             document.getElementById('name').dataset.id = ""
             document.getElementById('pokemon').src=""
@@ -44,14 +44,14 @@ var input = document.getElementById("data");
           document.getElementById('special-attack').innerHTML="s-att : "+pokeData['stats'][3]['base_stat']
           document.getElementById('special-defence').innerHTML="s-def : "+pokeData['stats'][4]['base_stat']
           document.getElementById('speed').innerHTML="speed : "+pokeData['stats'][5]['base_stat']
-      
           // type
-          // typePokemon(pokeData.types[0]['type']['name'])
-
-          // typePokemon(pokeData.types[1]['type']['name'])
-          
-          img
-      
+          if (pokeData.types.length == 2) {
+             document.getElementById('first-type').src = typePokemon(pokeData.types[0]['type']['name'])
+             document.getElementById('second-type').src = typePokemon(pokeData.types[1]['type']['name'])
+          } else {
+            document.getElementById('first-type').src = typePokemon(pokeData.types[0]['type']['name'])
+            document.getElementById('second-type').src = ""
+          }
       
         })
     } catch (error) {
@@ -60,45 +60,44 @@ var input = document.getElementById("data");
 }
 
 function typePokemon(type){
-  switch (pokeData) {
+  switch (type) {
     case "bug":
-      
-      return "./assets/type_pokemon/bug.png"
+      return "assets/type_pokemon/bug.png"
     case "dark":
-      return "assets\type_pokemon\dark.png"
+      return "assets/type_pokemon/dark.png"
     case "dragon":
-      return "assets\type_pokemon\dragon.png"
+      return "assets/type_pokemon/dragon.png"
     case "electric":
-      return "assets\type_pokemon\electr.png"
+      return "assets/type_pokemon/electr.png"
     case "fairy":
-      return "assets\type_pokemon\fairy.png"
+      return "assets/type_pokemon/fairy.png"
     case "fighting":
-      return "assets\type_pokemon\fight.png"
+      return "assets/type_pokemon/fight.png"
     case "fire":
-      return "assets\type_pokemon\fire.png"
+      return "assets/type_pokemon/fire.png"
 
     case "flying":
-      return ""
+      return "assets/type_pokemon/flying.png"
     case "ghost":
-      return ""
+      return "assets/type_pokemon/ghost.png"
     case "ground":
-      return ""
+      return "assets/type_pokemon/ground.png"
     case "grass":
-      return ""
+      return "assets/type_pokemon/grass.png"
     case "ice":
-      return ""
+      return "assets/type_pokemon/ice.png"
     case "normal":
-      return ""
+      return "assets/type_pokemon/normal.png"
     case "poison":
-      return ""
+      return "assets/type_pokemon/poison.png"
     case "psychic":
-      return ""
+      return "assets/type_pokemon/psychc.png"
     case "rock":
-      return ""
+      return "assets/type_pokemon/Rock.png"
     case "steel":
-      return ""
+      return "assets/type_pokemon/steel.png"
     case "water":
-      return "" 
+      return "assets/type_pokemon/water.png" 
     
     
     

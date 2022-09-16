@@ -6,7 +6,8 @@ var input = document.getElementById("data");
   });
 
 
-  async function search(data) {
+async function search(data) {
+    
     try {
       if(!Number.isInteger(data)){
         data = data.toLowerCase();
@@ -15,7 +16,6 @@ var input = document.getElementById("data");
       .then(response => response.json())
         .then(function (pokeData) {
             
-
             document.getElementById('data').value = ""
             document.getElementById('name').dataset.id = ""
             document.getElementById('pokemon').src=""
@@ -46,10 +46,11 @@ var input = document.getElementById("data");
           document.getElementById('speed').innerHTML="speed : "+pokeData['stats'][5]['base_stat']
           // type
           if (pokeData.types.length == 2) {
-             document.getElementById('first-type').src = typePokemon(pokeData.types[0]['type']['name'])
-             document.getElementById('second-type').src = typePokemon(pokeData.types[1]['type']['name'])
+            
+             document.getElementById('first-type').src = `assets/type_pokemon/${pokeData.types[0]['type']['name']}.png`
+             document.getElementById('second-type').src = `assets/type_pokemon/${pokeData.types[1]['type']['name']}.png`
           } else {
-            document.getElementById('first-type').src = typePokemon(pokeData.types[0]['type']['name'])
+            document.getElementById('first-type').src = `assets/type_pokemon/${pokeData.types[0]['type']['name']}.png`
             document.getElementById('second-type').src = ""
           }
       
@@ -59,59 +60,7 @@ var input = document.getElementById("data");
     }
 }
 
-function typePokemon(type){
-  switch (type) {
-    case "bug":
-      return "assets/type_pokemon/bug.png"
-    case "dark":
-      return "assets/type_pokemon/dark.png"
-    case "dragon":
-      return "assets/type_pokemon/dragon.png"
-    case "electric":
-      return "assets/type_pokemon/electr.png"
-    case "fairy":
-      return "assets/type_pokemon/fairy.png"
-    case "fighting":
-      return "assets/type_pokemon/fight.png"
-    case "fire":
-      return "assets/type_pokemon/fire.png"
 
-    case "flying":
-      return "assets/type_pokemon/flying.png"
-    case "ghost":
-      return "assets/type_pokemon/ghost.png"
-    case "ground":
-      return "assets/type_pokemon/ground.png"
-    case "grass":
-      return "assets/type_pokemon/grass.png"
-    case "ice":
-      return "assets/type_pokemon/ice.png"
-    case "normal":
-      return "assets/type_pokemon/normal.png"
-    case "poison":
-      return "assets/type_pokemon/poison.png"
-    case "psychic":
-      return "assets/type_pokemon/psychc.png"
-    case "rock":
-      return "assets/type_pokemon/Rock.png"
-    case "steel":
-      return "assets/type_pokemon/steel.png"
-    case "water":
-      return "assets/type_pokemon/water.png" 
-    
-    
-    
-   
-   
-    
-   
-   
-    
-   
-   
-   
-  }
-}
 function previous(){
   var id = document.getElementById('name').dataset.id
   if(id > 1){
